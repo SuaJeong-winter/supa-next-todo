@@ -1,19 +1,12 @@
 "use client";
 
-import {
-  deleteTodosSoft,
-  getTodos,
-  getTodosById,
-  getTodosBySearch,
-  updateTodos,
-} from "@/apis/todos-no-rls";
+import useTodosController from "@/app/hooks/useTodosController";
 import React, { useEffect } from "react";
 
 const TodoContainer = () => {
-  useEffect(() => {
-    deleteTodosSoft(3);
-  }, []);
-
-  return <h1>TodoContainer Component</h1>;
+  const { loading, todos } = useTodosController();
+  console.log(">>loading", loading);
+  console.log(">>todos", todos);
+  return <div>TodoContainer</div>;
 };
 export default TodoContainer;
